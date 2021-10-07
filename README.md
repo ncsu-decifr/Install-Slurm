@@ -366,10 +366,25 @@ touch /var/log/slurm/slurmdbd.log
 chown slurm /var/log/slurm/slurmdbd.log
 ```
 
-#### Install drmaa packages
+#### Install drmaa packages and dependencies to build source
 https://pypi.org/project/drmaa/
 
 https://github.com/natefoo/slurm-drmaa
+
+```
+wget http://www.colm.net/files/ragel/ragel-6.10.tar.gz
+tar xf ragel-6.10.tar.gz
+./configure
+make
+sudo make install
+
+ wget http://ftp.gnu.org/pub/gnu/gperf/gperf-3.1.tar.gz
+ ./configure
+make
+sudo make install
+
+```
+
 
 
 ### References:

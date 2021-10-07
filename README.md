@@ -355,4 +355,10 @@ systemctl start slurmctld.service
 systemctl status slurmctld.service
 ```
 
+Above notes mostly work but some changes to note
+
+
+```
+wget https://download.schedmd.com/slurm/slurm-21.08.2.tar.bz2
+```
 Reference: [slothparadise](https://www.slothparadise.com/how-to-install-slurm-on-centos-7-cluster/), [Niflheim](https://wiki.fysik.dtu.dk/niflheim/Slurm_database), [gabrieleiannetti](https://github.com/gabrieleiannetti/slurm_cluster_wiki/wiki/Installing-a-Slurm-Cluster)

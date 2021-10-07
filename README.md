@@ -383,6 +383,13 @@ sudo make install
 make
 sudo make install
 
+git clone https://github.com/natefoo/slurm-drmaa.git
+cd slurm-drmaa
+git submodule init && git submodule update
+./autogen.sh
+./configure
+make
+
 ```
 
 

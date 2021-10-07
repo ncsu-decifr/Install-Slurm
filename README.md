@@ -354,7 +354,7 @@ systemctl enable slurmctld.service
 systemctl start slurmctld.service
 systemctl status slurmctld.service
 ```
-
+### Starting Notes adapted to install slurm for a server running galaxy server
 Above notes mostly work but some changes to note
 
 

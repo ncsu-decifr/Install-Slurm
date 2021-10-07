@@ -364,6 +364,11 @@ wget https://download.schedmd.com/slurm/slurm-21.08.2.tar.bz2
 mkdir /var/log/slurm
 touch /var/log/slurm/slurmdbd.log
 chown slurm /var/log/slurm/slurmdbd.log
-
 ```
+
+# Install drmaa packages
+https://pypi.org/project/drmaa/
+https://github.com/natefoo/slurm-drmaa
+
+
 Reference: [slothparadise](https://www.slothparadise.com/how-to-install-slurm-on-centos-7-cluster/), [Niflheim](https://wiki.fysik.dtu.dk/niflheim/Slurm_database), [gabrieleiannetti](https://github.com/gabrieleiannetti/slurm_cluster_wiki/wiki/Installing-a-Slurm-Cluster)

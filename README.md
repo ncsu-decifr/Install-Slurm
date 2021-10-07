@@ -366,7 +366,7 @@ touch /var/log/slurm/slurmdbd.log
 chown slurm /var/log/slurm/slurmdbd.log
 ```
 
-# Install drmaa packages
+#### Install drmaa packages
 https://pypi.org/project/drmaa/
 
 https://github.com/natefoo/slurm-drmaa

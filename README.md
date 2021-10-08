@@ -423,6 +423,41 @@ Slurmctld(primary) at vclv99-252 is UP
 
 ```
 
+Start 2 handlers.
+```
+cd /usr/local/galaxy
+cd .venv/bin
+source activate
+cd /usr/local/galaxy
+./scripts/galaxy-main -c config/galaxy.yml --server-name handler0 --attach-to-pool job-handlers --pid-file handler0.pid --daemonize
+./scripts/galaxy-main -c config/galaxy.yml --server-name handler1 --attach-to-pool job-handlers --pid-file handler1.pid --daemonize
+
+```
+
+Edit job_conf.xml
+```
+<?xml version="1.0"?>
+<job_conf>
+  <plugins>
+    <plugin id="local" type="runner" load="galaxy.jobs.runners.local:LocalJobRunner" workers="4"/>
+    <plugin id="slurm" type="runner" load="galaxy.jobs.runners.slurm:SlurmJobRunner" workers="4"/>
+  </plugins>
+  <handlers assign_with="db-skip-locked">
+    <handler id="handler0">
+      <plugin id="slurm"/>
+    </handler>
+    <handler id="handler1">
+      <plugin id="slurm"/>
+    </handler>
+  </handlers>
+  <destinations default="slurm">
+    <destination id="local" runner="local"/>
+    <destination id="slurm" runner="slurm"/>
+  </destinations>
+</job_conf>
+
+```
+
 
 
 

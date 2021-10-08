@@ -374,12 +374,14 @@ https://github.com/natefoo/slurm-drmaa
 ```
 wget http://www.colm.net/files/ragel/ragel-6.10.tar.gz
 tar xf ragel-6.10.tar.gz
+cd ragel
 ./configure
 make
 sudo make install
 
- wget http://ftp.gnu.org/pub/gnu/gperf/gperf-3.1.tar.gz
- ./configure
+wget http://ftp.gnu.org/pub/gnu/gperf/gperf-3.1.tar.gz
+cd gperf
+./configure
 make
 sudo make install
 
@@ -389,8 +391,23 @@ git submodule init && git submodule update
 ./autogen.sh
 ./configure
 make
+sudo make install
+```
+
+Copy example conf files in /etc/slurm to actual conf files. Edit slurm.conf.
+You can set the partition name. See [Quick Start User Guide](https://slurm.schedmd.com/quickstart.html)
 
 ```
+hostname -s
+vclv99-252
+
+vi slurm.conf
+SlurmctldHost=vclv99-252
+NodeName=vclv99-252 NodeAddr=152.7.99.252 CPUs=8 State=UNKNOWN
+PartitionName=testing Nodes=ALL Default=YES MaxTime=INFINITE State=UP
+```
+
+
 
 
 

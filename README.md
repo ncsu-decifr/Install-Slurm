@@ -406,7 +406,22 @@ SlurmctldHost=vclv99-252
 NodeName=vclv99-252 NodeAddr=152.7.99.252 CPUs=8 State=UNKNOWN
 PartitionName=testing Nodes=ALL Default=YES MaxTime=INFINITE State=UP
 ```
+Some useful commands to see if it's working.
+```
+slurmdbd -D -vv
 
+sinfo -Ne
+NODELIST    NODES PARTITION STATE
+vclv99-252      1  testing* idle
+
+slurmd -C
+NodeName=vclv99-252 CPUs=8 Boards=1 SocketsPerBoard=2 CoresPerSocket=4 ThreadsPerCore=1 RealMemory=15580
+UpTime=2-18:01:50
+
+scontrol ping
+Slurmctld(primary) at vclv99-252 is UP
+
+```
 
 
 

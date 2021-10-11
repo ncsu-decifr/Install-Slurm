@@ -458,8 +458,14 @@ Edit job_conf.xml
   </handlers>
   <destinations default="slurm">
     <destination id="local" runner="local"/>
-    <destination id="slurm" runner="slurm"/>
+    <destination id="slurm" runner="slurm">
+      <param id="native_specification">--mem=4000 --ntasks=2</param>
+    </destination>
   </destinations>
+  <limits>
+    <limit type="registered_user_concurrent_jobs">2</limit>
+    <limit type="destination_total_concurrent_jobs" id="slurm">8</limit>
+  </limits>
 </job_conf>
 
 ```

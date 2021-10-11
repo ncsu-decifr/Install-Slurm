@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<job_conf>
+  <plugins>
+    <plugin id="local" type="runner" load="galaxy.jobs.runners.local:LocalJobRunner" workers="4"/>
+    <plugin id="slurm" type="runner" load="galaxy.jobs.runners.slurm:SlurmJobRunner" workers="4"/>
+  </plugins>
+  <handlers assign_with="db-skip-locked">
+    <handler id="handler0">
+      <plugin id="slurm"/>
+    </handler>
+    <handler id="handler1">
+      <plugin id="slurm"/>
+    </handler>
+  </handlers>
+  <destinations default="slurm">
+    <destination id="local" runner="local"/>
+    <destination id="slurm" runner="slurm">
+      <param id="native_specification">--mem=4000 --ntasks=2</param>
+    </destination>
+  </destinations>
+  <limits>
+    <limit type="registered_user_concurrent_jobs">2</limit>
+    <limit type="destination_total_concurrent_jobs" id="slurm">8</limit>
+  </limits>
+</job_conf>

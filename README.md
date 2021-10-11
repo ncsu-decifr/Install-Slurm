@@ -412,7 +412,7 @@ SlurmctldHost=vclv99-252
 NodeName=vclv99-252 NodeAddr=152.7.99.252 CPUs=8 State=UNKNOWN
 PartitionName=testing Nodes=ALL Default=YES MaxTime=INFINITE State=UP
 ```
-Some useful commands to see if it's working.
+Some useful commands to see if it's working. It may be necessary to use these commands and check the log files for errors, usually permission errors, until these commands are successful.
 ```
 slurmdbd -D -vv
 

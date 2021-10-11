@@ -440,7 +440,7 @@ cd /usr/local/galaxy
 
 ```
 
-Edit job_conf.xml
+#### Edit job_conf.xml
 ```
 <?xml version="1.0"?>
 <job_conf>

@@ -354,7 +354,7 @@ systemctl enable slurmctld.service
 systemctl start slurmctld.service
 systemctl status slurmctld.service
 ```
-### Starting Notes adapted to install slurm for a server running galaxy server
+### Starting Notes adapted to install slurm for a CentOS 8 server running [galaxy](https://galaxyproject.org/) server
 Above notes mostly work but some changes to note
 
 
@@ -372,19 +372,22 @@ https://pypi.org/project/drmaa/
 https://github.com/natefoo/slurm-drmaa
 
 ```
+cd /usr/local
 wget http://www.colm.net/files/ragel/ragel-6.10.tar.gz
 tar xf ragel-6.10.tar.gz
-cd ragel
+cd ragel-6.10
 ./configure
 make
 sudo make install
 
+cd /usr/local
 wget http://ftp.gnu.org/pub/gnu/gperf/gperf-3.1.tar.gz
-cd gperf
+cd gperf-3.1
 ./configure
 make
 sudo make install
 
+cd /usr/local
 git clone https://github.com/natefoo/slurm-drmaa.git
 cd slurm-drmaa
 git submodule init && git submodule update
@@ -392,6 +395,9 @@ git submodule init && git submodule update
 ./configure
 make
 sudo make install
+
+sudo /sbin/ldconfig -v | grep drmaa
+    libdrmaa.so.1 -> libdrmaa.so.1.0.8
 ```
 
 Copy example conf files in /etc/slurm to actual conf files. Edit slurm.conf.

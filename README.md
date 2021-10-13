@@ -432,7 +432,7 @@ Slurmctld(primary) at vclv99-252 is UP
 
 ```
 
-Start 2 handlers.
+Start 2 handlers or restart them if job_conf.xml is updated.
 ```
 cd /usr/local/galaxy
 cd .venv/bin

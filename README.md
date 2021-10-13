@@ -477,10 +477,8 @@ To restart all for new config:
 ```
 systemctl stop slurmd
 systemctl stop slurmctld
-systemctl stop slurmctld
 
 systemctl start slurmd
-systemctl start slurmctld
 systemctl start slurmctld
 ```
 

@@ -472,7 +472,7 @@ cd /usr/local/galaxy
 </job_conf>
 
 ```
-To restart all for new config:
+To restart all for new slurm config:
 
 ```
 systemctl stop slurmd

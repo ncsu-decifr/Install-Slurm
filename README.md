@@ -403,6 +403,9 @@ sudo /sbin/ldconfig -v | grep drmaa
 Copy example conf files in /etc/slurm to actual conf files. Edit slurm.conf.
 You can set the partition name. See [Quick Start User Guide](https://slurm.schedmd.com/quickstart.html)
 
+Use this to get slurm.conf
+[Slurm Version 21.08 Configuration Tool](https://slurm.schedmd.com/configurator.html)
+
 ```
 hostname -s
 vclv99-252

@@ -480,6 +480,16 @@ systemctl stop slurmctld
 
 systemctl start slurmd
 systemctl start slurmctld
+
+ps aux | grep handler
+kill 2882149 2882193
+
+cd /usr/local/galaxy
+cd .venv/bin
+source activate
+cd /usr/local/galaxy
+./scripts/galaxy-main -c config/galaxy.yml --server-name handler0 --attach-to-pool job-handlers --pid-file handler0.pid --daemonize
+./scripts/galaxy-main -c config/galaxy.yml --server-name handler1 --attach-to-pool job-handlers --pid-file handler1.pid --daemonize
 ```
 
 

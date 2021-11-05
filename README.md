@@ -484,6 +484,7 @@ systemctl start slurmctld
 ps aux | grep handler
 kill 2882149 2882193
 
+sudo su galaxy
 cd /usr/local/galaxy
 cd .venv/bin
 source activate

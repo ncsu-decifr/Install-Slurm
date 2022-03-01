@@ -80,6 +80,9 @@ Alternatively install from source
 wget https://github.com/dun/munge/releases/download/munge-0.5.14/munge-0.5.14.tar.xz
 ./configure, etc.
 
+add locallib.conf to /etc/ld.so.conf.d with /usr/local/lib
+ldconfig -v
+
 yum install rng-tools -y
 rngd -r /dev/urandom
 ```

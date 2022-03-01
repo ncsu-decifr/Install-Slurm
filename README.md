@@ -179,7 +179,9 @@ cd /usr/local
 wget https://download.schedmd.com/slurm/slurm-21.08.6.tar.bz2
 tar xf slurm-21.08.6.tar.bz2
 cd slurm-21.08.6
-./configure, etc and /sbin/ldconfig -v
+./configure, etc 
+add /usr/local/lib/slurm to /etc/ld.conf.d/locallib.conf
+/sbin/ldconfig -v
 ```
 
 On the __master__ node:

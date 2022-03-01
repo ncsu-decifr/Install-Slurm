@@ -64,12 +64,6 @@ Install Munge:
 ```
 yum install munge munge-libs munge-devel -y
 ```
-Alternatively install from source
-```
-wget https://github.com/dun/munge/releases/download/munge-0.5.14/munge-0.5.14.tar.xz
-./configure, etc.
-```
-
 Create a secret key on __master__ node. First install rig-tools to properly create the key:
 
 ```
@@ -80,6 +74,17 @@ dd if=/dev/urandom bs=1 count=1024 > /etc/munge/munge.key
 chown munge: /etc/munge/munge.key
 chmod 400 /etc/munge/munge.key
 ```
+
+Alternatively install from source
+```
+wget https://github.com/dun/munge/releases/download/munge-0.5.14/munge-0.5.14.tar.xz
+./configure, etc.
+
+yum install rng-tools -y
+rngd -r /dev/urandom
+```
+
+
 
 Send this key to all of the compute nodes:
 

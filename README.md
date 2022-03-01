@@ -64,6 +64,10 @@ Install Munge:
 ```
 yum install munge munge-libs munge-devel -y
 ```
+Alternatively install from source
+```
+git clone https://github.com/dun/munge.git
+```
 
 Create a secret key on __master__ node. First install rig-tools to properly create the key:
 

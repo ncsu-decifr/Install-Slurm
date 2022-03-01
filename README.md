@@ -85,6 +85,10 @@ ldconfig -v
 
 yum install rng-tools -y
 rngd -r /dev/urandom
+/usr/local/sbin/mungekey
+dd if=/dev/urandom bs=1 count=1024 > /usr/local/etc/munge/munge.key
+chown munge /usr/local/etc/munge/munge.key
+chmod 400 /usr/local/etc/munge/munge.key
 ```
 
 

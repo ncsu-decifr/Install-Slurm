@@ -171,6 +171,17 @@ On every node, install these rpms:
 yum --nogpgcheck localinstall * -y
 ```
 
+Alternatively install from source
+
+```
+yum install openssl openssl-devel pam-devel numactl numactl-devel hwloc  lua  readline-devel ncurses-devel man2html libibmad libibumad -y
+cd /usr/local
+wget https://download.schedmd.com/slurm/slurm-21.08.6.tar.bz2
+tar xf slurm-21.08.6.tar.bz2
+cd slurm-21.08.6
+./configure, etc and /sbin/ldconfig -v
+```
+
 On the __master__ node:
 
 ```

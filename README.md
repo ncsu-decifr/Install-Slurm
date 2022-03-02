@@ -173,6 +173,7 @@ yum --nogpgcheck localinstall * -y
 
 Alternatively install from source
 https://slurm.schedmd.com/quickstart_admin.html
+http://underpop.online.fr/m/mysql/manual/mysql-connectors-apis-libmysqld-compiling.html
 ```
 yum install openssl openssl-devel pam-devel numactl numactl-devel hwloc  lua  readline-devel ncurses-devel man2html libibmad libibumad -y
 yum install mariadb-server mariadb-devel -y

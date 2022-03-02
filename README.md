@@ -186,6 +186,8 @@ add /usr/local/lib/slurm to /etc/ld.conf.d/locallib.conf
 copy conf from etc directory
 cp slurm.conf.example /etc/slurm/slurm.conf
 /usr/local/sbin/slurmd -C
+
+copy service files in etc to /etc/systemd/system
 ```
 
 On the __master__ node:

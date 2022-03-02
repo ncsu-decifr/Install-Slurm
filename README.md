@@ -182,6 +182,10 @@ cd slurm-21.08.6
 ./configure, etc 
 add /usr/local/lib/slurm to /etc/ld.conf.d/locallib.conf
 /sbin/ldconfig -v
+
+copy conf from etc directory
+cp slurm.conf.example /etc/slurm/slurm.conf
+/usr/local/sbin/slurmd -C
 ```
 
 On the __master__ node:

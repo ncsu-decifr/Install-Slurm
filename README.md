@@ -436,7 +436,8 @@ git clone https://github.com/natefoo/slurm-drmaa.git
 cd slurm-drmaa
 git submodule init && git submodule update
 ./autogen.sh
-./configure
+./configure , or 
+./configure  --with-slurm-lib=/usr/local/lib/slurm
 make
 sudo make install
 

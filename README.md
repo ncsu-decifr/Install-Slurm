@@ -489,6 +489,7 @@ cd /usr/local/galaxy
 ```
 
 #### Edit job_conf.xml
+Depending on galaxy version may need to set job_config_file: config/job_conf.xml
 ```
 <?xml version="1.0"?>
 <job_conf>

@@ -415,7 +415,7 @@ SlurmctldHost=vclv99-252
 NodeName=vclv99-252 NodeAddr=152.7.99.252 CPUs=8 State=UNKNOWN
 PartitionName=testing Nodes=ALL Default=YES MaxTime=INFINITE State=UP
 ```
-Some useful commands to see if it's working. It may be necessary to use these commands and check the log files for errors, usually permission errors, until these commands are successful.
+Some useful commands to see if it's working. It may be necessary to use these commands and check the log files for errors, usually permission errors, until these commands are successful. Note that for slurm installed from source these commands are located in /usr/local/bin and /usr/local/sbin and would need to prefix the commands with path.
 ```
 slurmdbd -D -vv
 
@@ -444,6 +444,7 @@ cd /usr/local/galaxy
 ```
 
 #### Edit job_conf.xml
+If workflows do not run and possibly with the message 'Flushed transaction for WorkflowInvocation' then change assign_with="db-skip-locked" to assign_with="db-self"
 ```
 <?xml version="1.0"?>
 <job_conf>

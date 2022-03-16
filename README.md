@@ -43,10 +43,10 @@ suerdel -r munge
 Slurm and Munge require consistent UID and GID across every node in the cluster. For all the nodes, before you install Slurm or Munge:
 
 ```
-export MUNGEUSER=991
+export MUNGEUSER=971
 groupadd -g $MUNGEUSER munge
 useradd  -m -c "MUNGE Uid 'N' Gid Emporium" -d /var/lib/munge -u $MUNGEUSER -g munge  -s /sbin/nologin munge
-export SLURMUSER=992
+export SLURMUSER=972
 groupadd -g $SLURMUSER slurm
 useradd  -m -c "SLURM workload manager" -d /var/lib/slurm -u $SLURMUSER -g slurm  -s /bin/bash slurm
 ```
@@ -64,7 +64,6 @@ Install Munge:
 ```
 yum install munge munge-libs munge-devel -y
 ```
-
 Create a secret key on __master__ node. First install rig-tools to properly create the key:
 
 ```
@@ -75,6 +74,31 @@ dd if=/dev/urandom bs=1 count=1024 > /etc/munge/munge.key
 chown munge: /etc/munge/munge.key
 chmod 400 /etc/munge/munge.key
 ```
+
+Alternatively install from source
+```
+wget https://github.com/dun/munge/releases/download/munge-0.5.14/munge-0.5.14.tar.xz
+./configure, etc.
+
+add locallib.conf to /etc/ld.so.conf.d with /usr/local/lib
+ldconfig -v
+
+yum install rng-tools -y
+rngd -r /dev/urandom
+dd if=/dev/urandom bs=1 count=1024 > /usr/local/etc/munge/munge.key
+chown munge:munge /usr/local/etc/munge
+chown munge:munge /usr/local/etc/munge/munge.key
+chmod 0700 /usr/local/etc/munge
+chown munge:munge /usr/local/etc/munge
+chown -R munge:munge /usr/local/var/log/munge
+chown -R munge:munge /usr/local/var/lib/munge
+chown -R munge:munge /usr/local/var/run/munge/
+
+systemctl enable munge
+systemctl start munge
+```
+
+
 
 Send this key to all of the compute nodes:
 
@@ -145,6 +169,26 @@ On every node, install these rpms:
 
 ```
 yum --nogpgcheck localinstall * -y
+```
+
+Alternatively install from source
+https://slurm.schedmd.com/quickstart_admin.html
+```
+yum install openssl openssl-devel pam-devel numactl numactl-devel hwloc  lua  readline-devel ncurses-devel man2html libibmad libibumad -y
+yum install mariadb-server mariadb-devel -y
+cd /usr/local
+wget https://download.schedmd.com/slurm/slurm-21.08.6.tar.bz2
+tar xf slurm-21.08.6.tar.bz2
+cd slurm-21.08.6
+./configure --sysconfdir=/etc/slurm, make , make install
+add /usr/local/lib/slurm to /etc/ld.conf.d/locallib.conf
+/sbin/ldconfig -v
+
+copy conf from etc directory
+cp slurm.conf.example /etc/slurm/slurm.conf
+/usr/local/sbin/slurmd -C
+
+copy service files in etc to /etc/systemd/system
 ```
 
 On the __master__ node:
@@ -392,7 +436,8 @@ git clone https://github.com/natefoo/slurm-drmaa.git
 cd slurm-drmaa
 git submodule init && git submodule update
 ./autogen.sh
-./configure
+./configure , or
+./configure  --with-slurm-lib=/usr/local/lib/slurm
 make
 sudo make install
 
@@ -445,6 +490,8 @@ cd /usr/local/galaxy
 
 #### Edit job_conf.xml
 If workflows do not run and possibly with the message 'Flushed transaction for WorkflowInvocation' then change assign_with="db-skip-locked" to assign_with="db-self"
+
+Depending on galaxy version may need to set job_config_file: config/job_conf.xml
 ```
 <?xml version="1.0"?>
 <job_conf>

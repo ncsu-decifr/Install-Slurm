@@ -415,6 +415,8 @@ https://pypi.org/project/drmaa/
 
 https://github.com/natefoo/slurm-drmaa
 
+https://training.galaxyproject.org/training-material/topics/admin/tutorials/connect-to-compute-cluster/tutorial.html
+
 ```
 cd /usr/local
 wget http://www.colm.net/files/ragel/ragel-6.10.tar.gz

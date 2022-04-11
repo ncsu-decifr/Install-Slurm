@@ -543,8 +543,11 @@ cd /usr/local/galaxy
 ./scripts/galaxy-main -c config/galaxy.yml --server-name handler1 --attach-to-pool job-handlers --pid-file handler1.pid --daemonize
 ```
 
+After reboot may need to fix sinfo -Ne
 
-
+```
+scontrol update nodename=vclvm178-23 state=idle
+```
 ### References:
 
 [slothparadise](https://www.slothparadise.com/how-to-install-slurm-on-centos-7-cluster/), [Niflheim](https://wiki.fysik.dtu.dk/niflheim/Slurm_database), [gabrieleiannetti](https://github.com/gabrieleiannetti/slurm_cluster_wiki/wiki/Installing-a-Slurm-Cluster)

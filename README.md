@@ -306,7 +306,7 @@ Create the Slurm database user:
 mysql
 ```
 
-In mariaDB:
+In mariaDB (use own password instead of 1234):
 
 ```mysql
 MariaDB[(none)]> GRANT ALL ON slurm_acct_db.* TO 'slurm'@'localhost' IDENTIFIED BY '1234' with grant option;

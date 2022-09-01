@@ -445,6 +445,8 @@ sudo make install
 
 sudo /sbin/ldconfig -v | grep drmaa
     libdrmaa.so.1 -> libdrmaa.so.1.0.8
+    
+pip install drmaa
 ```
 
 Copy example conf files in /etc/slurm to actual conf files. Edit slurm.conf.

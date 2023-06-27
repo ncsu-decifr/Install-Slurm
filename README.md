@@ -546,9 +546,11 @@ cd /usr/local/galaxy
 ```
 
 After reboot may need to fix sinfo -Ne
+also for error log - error: cgroup_dbus_attach_to_scope: cannot connect to dbus system daemon: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
 
 ```
 scontrol update nodename=vclvm178-23 state=idle
+sudo systemctl start dbus.service
 ```
 ### References:
 

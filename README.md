@@ -552,6 +552,12 @@ also for error log - error: cgroup_dbus_attach_to_scope: cannot connect to dbus 
 scontrol update nodename=vclvm178-23 state=idle
 sudo systemctl start dbus.service
 ```
+
+To reset node with jobs still running in state drng
+
+```
+scontrol update nodename=vclvm178-23 state=resume
+```
 ### References:
 
 [slothparadise](https://www.slothparadise.com/how-to-install-slurm-on-centos-7-cluster/), [Niflheim](https://wiki.fysik.dtu.dk/niflheim/Slurm_database), [gabrieleiannetti](https://github.com/gabrieleiannetti/slurm_cluster_wiki/wiki/Installing-a-Slurm-Cluster)

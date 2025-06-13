@@ -558,6 +558,10 @@ To reset node with jobs still running in state drng
 ```
 scontrol update nodename=vclvm178-23 state=resume
 ```
+On some servers the slurm commands my need the full path, ie if you get scontrol: command not found.:
+```
+sudo /usr/local/bin/scontrol  update nodename=vclvm178-23 state=resume
+```
 ### References:
 
 [slothparadise](https://www.slothparadise.com/how-to-install-slurm-on-centos-7-cluster/), [Niflheim](https://wiki.fysik.dtu.dk/niflheim/Slurm_database), [gabrieleiannetti](https://github.com/gabrieleiannetti/slurm_cluster_wiki/wiki/Installing-a-Slurm-Cluster)

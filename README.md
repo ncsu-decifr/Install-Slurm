@@ -562,6 +562,14 @@ On some servers the slurm commands may need the full path, ie if you get scontro
 ```
 sudo /usr/local/bin/scontrol  update nodename=vclvm178-23 state=resume
 ```
+
+Invalid node state can be caused by resources found on server do not match what is shown in /etc/slurm/slurm.conf.
+For example if the server memory is reduced then line with RealMemory=350000 need to be set at less than real memory on the server. After fixing then set state as above.
+
+```
+NODELIST     NODES PARTITION STATE
+vclvm178-26      1    debug* inval
+```
 ### References:
 
 [slothparadise](https://www.slothparadise.com/how-to-install-slurm-on-centos-7-cluster/), [Niflheim](https://wiki.fysik.dtu.dk/niflheim/Slurm_database), [gabrieleiannetti](https://github.com/gabrieleiannetti/slurm_cluster_wiki/wiki/Installing-a-Slurm-Cluster)

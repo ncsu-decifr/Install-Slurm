@@ -570,6 +570,13 @@ For example if the server memory is reduced then line with RealMemory=350000 nee
 NODELIST     NODES PARTITION STATE
 vclvm178-26      1    debug* inval
 ```
+
+To maintain hostname after reboot and avoid conflict in slurm.conf
+```
+hostnamectl set-hostname vclvm178-26.vcl.ncsu.edu
+```
+
+
 ### References:
 
 [slothparadise](https://www.slothparadise.com/how-to-install-slurm-on-centos-7-cluster/), [Niflheim](https://wiki.fysik.dtu.dk/niflheim/Slurm_database), [gabrieleiannetti](https://github.com/gabrieleiannetti/slurm_cluster_wiki/wiki/Installing-a-Slurm-Cluster)

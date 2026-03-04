@@ -571,8 +571,12 @@ NODELIST     NODES PARTITION STATE
 vclvm178-26      1    debug* inval
 ```
 
-To maintain hostname after reboot and avoid conflict in slurm.conf
+To maintain hostname after reboot and avoid conflict in slurm.conf.
+
 ```
+hostname
+vclvm178-26.vcl.ncsu.edu
+
 hostnamectl set-hostname vclvm178-26.vcl.ncsu.edu
 ```
 

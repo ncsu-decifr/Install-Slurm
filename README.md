@@ -581,6 +581,7 @@ slurm_load_jobs error: No error
 ```
 
 Check lines are same as hostname in /etc/slurm/slurm.conf
+
 SlurmctldHost=vclvm178-26
 NodeName=vclvm178-26
 

@@ -571,8 +571,20 @@ NODELIST     NODES PARTITION STATE
 vclvm178-26      1    debug* inval
 ```
 
-To maintain hostname after reboot and avoid conflict in slurm.conf.
 
+```
+[icarbon@galaxy ~]$ squeue
+squeue: error: get_addr_info: getaddrinfo() failed: Name or service not known
+squeue: error: slurm_set_addr: Unable to resolve "vclvm178-26"
+squeue: error: Unable to establish control machine address
+slurm_load_jobs error: No error
+```
+
+Check lines are same as hostname in /etc/slurm/slurm.conf
+SlurmctldHost=vclvm178-26
+NodeName=vclvm178-26
+
+To maintain hostname after reboot and avoid conflict in slurm.conf.
 ```
 hostname
 vclvm178-26.vcl.ncsu.edu

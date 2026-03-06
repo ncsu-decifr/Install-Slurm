@@ -592,6 +592,12 @@ vclvm178-26.vcl.ncsu.edu
 hostnamectl set-hostname vclvm178-26.vcl.ncsu.edu
 ```
 
+After changing slurm config files update  and restart handlers and galaxy
+```
+scontrol reconfig
+
+```
+
 
 ### References:
 

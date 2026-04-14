@@ -598,6 +598,19 @@ scontrol reconfig
 
 ```
 
+### Fix PD status in squeue
+
+```
+squeue
+JOBID PARTITION NAME USER ST TIME NODES NODELIST(REASON)
+51295 debug g97743_y icarbon PD 0:00 1 (launch failed requeued held)
+```
+
+```
+scontrol release 51295
+squeue -j 51295
+```
+
 
 ### References:
 
